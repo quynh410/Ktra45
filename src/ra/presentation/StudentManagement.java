@@ -1,14 +1,18 @@
 package ra.presentation;
 
 import ra.entity.Student;
-
 import java.util.*;
 
 public class StudentManagement {
     private Map<String, Student> stu_map = new HashMap<>();
-    Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
-    public void display(){
+    public static void main(String[] args) {
+        StudentManagement management = new StudentManagement();
+        management.display();
+    }
+
+    public void display() {
         while (true) {
             System.out.println("********************MENU*******************");
             System.out.println("1. Danh sách sinh viên");
@@ -49,7 +53,8 @@ public class StudentManagement {
             }
         }
     }
-    public void displayList(){
+
+    public void displayList() {
         if (stu_map.isEmpty()) {
             System.out.println("Danh sách sinh viên trống.");
             return;
@@ -59,43 +64,41 @@ public class StudentManagement {
             System.out.println(student);
         }
     }
+
     public void addStudent() {
         Student student = new Student();
         student.inputData(scanner);
         stu_map.put(student.getStu_id(), student);
         System.out.println("Thêm sinh viên thành công!");
     }
+
     public void delete() {
         System.out.println("Nhập mã sinh viên cần xóa: ");
         String stu_id = scanner.nextLine();
-        if(stu_map.remove(stu_id) != null ) {
+        if (stu_map.remove(stu_id) != null) {
             System.out.println("Xóa sinh viên thành công");
-        }else{
-            System.out.println("ko tìm thấy sinh viên có mã !!"+ stu_id);
+        } else {
+            System.out.println("Không tìm thấy sinh viên có mã: " + stu_id);
         }
     }
-    public void  calculateAvg() {
+
+    public void calculateAvg() {
         if (stu_map.isEmpty()) {
-            System.out.println("ko có sinh viên.");
+            System.out.println("Không có sinh viên.");
             return;
         }
-        float  avg = 0;
+        float avg = 0;
         for (Student student : stu_map.values()) {
             avg = avg + student.getAvg_score();
         }
         avg = avg / stu_map.size();
         System.out.println("Điểm trung bình của sinh viên: " + avg);
     }
-    public void  printHighestAvg() {
+
+    public void printHighestAvg() {
         if (stu_map.isEmpty()) {
-            System.out.println("không có sinh viên trong danh sách!");
+            System.out.println("Không có sinh viên trong danh sách!");
             return;
         }
         List<Student> listStudent = new ArrayList<>(stu_map.values());
-        System.out.println("Sinh viên có điểm trung bình cao nhất: ");
-        System.out.println(listStudent.get(0));
-    }
-    public void printSmallAge(){
-
-    }
-}
+        Student highest
