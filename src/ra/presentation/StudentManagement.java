@@ -7,11 +7,6 @@ public class StudentManagement {
     private Map<String, Student> stu_map = new HashMap<>();
     private Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        StudentManagement management = new StudentManagement();
-        management.display();
-    }
-
     public void display() {
         while (true) {
             System.out.println("********************MENU*******************");
@@ -101,4 +96,16 @@ public class StudentManagement {
             return;
         }
         List<Student> listStudent = new ArrayList<>(stu_map.values());
-        Student highest
+        System.out.println("Sinh viên có điểm trung bình cao nhất: ");
+        System.out.println(listStudent.get(0));
+    }
+
+    public void printSmallAge() {
+
+    }
+
+    public static void main(String[] args) {
+        StudentManagement management = new StudentManagement();
+        management.display();
+    }
+}
