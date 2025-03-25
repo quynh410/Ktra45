@@ -39,6 +39,7 @@ public class StudentManagement {
                     printHighestAvg();
                     break;
                 case 6:
+                    printSmallAge();
                     break;
                 case 7:
                     System.out.println("Thoát chương trình!");
@@ -93,5 +94,8 @@ public class StudentManagement {
         List<Student> listStudent = new ArrayList<>(stu_map.values());
         System.out.println("Sinh viên có điểm trung bình cao nhất: ");
         System.out.println(listStudent.get(0));
+    }
+    public void printSmallAge(){
+
     }
 }
