@@ -7,14 +7,17 @@ public class StudentManagement {
     private Map<String, Student> stu_map = new HashMap<>();
     private Scanner scanner = new Scanner(System.in);
 
-    public void display() {
+    public static void main(String[] args) {
+        StudentManagement management = new StudentManagement();
+        Scanner scanner = new Scanner(System.in);
+
         while (true) {
             System.out.println("********************MENU*******************");
             System.out.println("1. Danh sách sinh viên");
-            System.out.println("2. Thêm mới các sinh viên");
-            System.out.println("3. Xóa sinh viên theo mã sinh viên");
+            System.out.println("2. Thêm mới sinh viên");
+            System.out.println("3. Xóa sinh viên theo mã");
             System.out.println("4. Tính điểm trung bình của tất cả sinh viên");
-            System.out.println("5. In thông tin sinh viên có điểm trung bình lớn nhất");
+            System.out.println("5. In thông tin sinh viên có điểm trung bình cao nhất");
             System.out.println("6. In thông tin sinh viên có tuổi nhỏ nhất");
             System.out.println("7. Thoát");
             System.out.println("********************************************");
@@ -23,22 +26,22 @@ public class StudentManagement {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    displayList();
+                    management.displayList();
                     break;
                 case 2:
-                    addStudent();
+                    management.addStudent();
                     break;
                 case 3:
-                    delete();
+                    management.delete();
                     break;
                 case 4:
-                    calculateAvg();
+                    management.calculateAvg();
                     break;
                 case 5:
-                    printHighestAvg();
+                    management.printHighestAvg();
                     break;
                 case 6:
-                    printSmallAge();
+                    management.printSmallAge();
                     break;
                 case 7:
                     System.out.println("Thoát chương trình!");
@@ -48,7 +51,6 @@ public class StudentManagement {
             }
         }
     }
-
     public void displayList() {
         if (stu_map.isEmpty()) {
             System.out.println("Danh sách sinh viên trống.");
@@ -104,8 +106,4 @@ public class StudentManagement {
 
     }
 
-    public static void main(String[] args) {
-        StudentManagement management = new StudentManagement();
-        management.display();
-    }
 }
